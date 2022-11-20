@@ -26,9 +26,12 @@ set(CMAKE_CXX_STANDARD 14)
 # 'target_link_libraries'
 add_library(mymath src/fib.c src/sum.c src/sumn.c)
 target_include_directories(mymath PUBLIC include)
+target_compile_options(mymath PUBLIC -g -O0)
 
 # define executable named main for experimenting and debugging code
 add_executable(main src/main.cpp)
+target_compile_options(main PUBLIC -g -O0)
+
 target_link_libraries(main mymath)
 
 # tests are added by declaring a target, in this case 'tests'. additional tests
